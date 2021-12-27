@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Among_Us',
       onGenerateRoute: router.generateRoute,
-      initialRoute: HomeViewRoute,
+      initialRoute: homeViewRoute,
     );
   }
 }

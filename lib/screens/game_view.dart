@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 class GameView extends StatelessWidget {
@@ -5,6 +6,7 @@ class GameView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     return const Scaffold(
       body: Center(
         child: Text('game view'),
