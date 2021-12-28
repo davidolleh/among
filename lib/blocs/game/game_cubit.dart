@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-
 part 'game_state.dart';
 
 class GameCubit extends Cubit<GameState> {
@@ -17,8 +16,11 @@ class GameCubit extends Cubit<GameState> {
       if (state.sec > 59) {
         state.sec = 0;
         state.min++;
+        if (state.min >= 1) {
+          timer.cancel();
+        }
       }
-    emit(GameInProgress(sec: state.sec, min: state.min));
+      emit(GameInProgress(sec: state.sec, min: state.min));
     });
   }
 

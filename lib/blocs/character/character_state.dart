@@ -13,7 +13,7 @@ abstract class CharacterState {
     required String path,
   }): _path = path, _isAlive = isAlive, _yCoordinate = yCoordinate;
 
-  double get initialHeight => _initialHeight;
+  static double get initialHeight => _initialHeight;
   double get yCoordinate => _yCoordinate;
   bool get isAlive => _isAlive;
   String get path => _path;
@@ -36,6 +36,16 @@ class CharacterSelected extends CharacterState {
     yCoordinate: 1.0,
     isAlive: true,
     path: path
+  );
+}
+
+class CharacterStill extends CharacterState {
+  const CharacterStill({
+    required String path,
+  }) : super(
+      path : path,
+      isAlive: true,
+      yCoordinate: 1.0
   );
 }
 
