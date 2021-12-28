@@ -1,8 +1,12 @@
 import 'package:among/routes/routing_constants.dart';
-import 'package:among/screens/game_view.dart';
-import 'package:among/screens/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:among/routes/router.dart' as router;
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'blocs/character/character_cubit.dart';
+import 'blocs/game/game_cubit.dart';
+import 'blocs/obstacle/obstacle_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +17,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Among_Us',
-      onGenerateRoute: router.generateRoute,
-      initialRoute: homeViewRoute,
-    );
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => CharacterCubit()),
+          BlocProvider(create: (_) => ObstacleCubit()),
+          BlocProvider(create: (_) => GameCubit()),
+        ],
+        child: const MaterialApp(
+          title: 'Among_Us',
+          onGenerateRoute: router.generateRoute,
+          initialRoute: homeViewRoute,
+        ));
   }
 }
