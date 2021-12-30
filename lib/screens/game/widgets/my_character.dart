@@ -10,9 +10,9 @@ class MyCharacter extends StatelessWidget {
     return BlocBuilder<CharacterCubit, CharacterState>(
       builder: (context, state) {
         return Align(
-          alignment: Alignment(-0.9, state.yCoordinate),
+          alignment: Alignment(-0.8, state.yCoordinate),
           child: Image(
-              width: 80,
+              width: 70,
               image: AssetImage(state.path),
           ),
         );

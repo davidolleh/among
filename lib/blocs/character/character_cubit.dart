@@ -17,9 +17,9 @@ class CharacterCubit extends Cubit<CharacterState> {
     Timer.periodic(const Duration(milliseconds: 30), (characterTimer) {
       time += 0.03;
       double targetY =
-          CharacterState.initialHeight - (-4.9 * time * time + v * time);
+          CharacterState.initialHeight - (-6.5 * time * time + v * time);
       if (targetY >= CharacterState.initialHeight) {
-        targetY = 1.0;
+        targetY = 0.7;
         emit(CharacterStill(path: state.path));
         characterTimer.cancel();
       } else {

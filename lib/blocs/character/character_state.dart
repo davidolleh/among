@@ -2,7 +2,7 @@ part of 'character_cubit.dart';
 
 @immutable
 abstract class CharacterState {
-  static const double _initialHeight = 1.0;
+  static const double _initialHeight = 0.7;
   final double _yCoordinate;
   final bool _isAlive;
   final String _path;
@@ -23,7 +23,7 @@ class CharacterInitial extends CharacterState {
     const CharacterInitial({
       String path = 'assets/images/main_characters/among_us_character_red'
   }) : super(
-      yCoordinate: 1.0,
+      yCoordinate: 0.7,
       isAlive: true,
       path: path
   );
@@ -33,7 +33,7 @@ class CharacterSelected extends CharacterState {
   const CharacterSelected({
     required String path
   }): super(
-    yCoordinate: 1.0,
+    yCoordinate: 0.7,
     isAlive: true,
     path: path
   );
@@ -45,7 +45,7 @@ class CharacterStill extends CharacterState {
   }) : super(
       path : path,
       isAlive: true,
-      yCoordinate: 1.0
+      yCoordinate: 0.7
   );
 }
 

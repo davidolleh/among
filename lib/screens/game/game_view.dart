@@ -11,34 +11,29 @@ class GameView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<GameCubit>().startGame();
-    return Stack(
-      children: [
-        GestureDetector(
-          onTapUp: (_) => context.read<CharacterCubit>().shortJump(),
-          onLongPress: () => context.read<CharacterCubit>().longJump(),
-          child: Scaffold(
-              backgroundColor: Colors.black,
-              body: Column(
-                // children: const [
-                //   Timer(),
-                //   SizedBox(height: 250,),
-                //   MyCharacter(),
-                // ],
-                children: [
-                  Expanded(
-                      child: Stack(//stack 이용 방법 alignment 이용방법 알아보기
-                          children: const [
-                            Timer(),
-                            SizedBox(height: 250,),
-                            MyCharacter(),
-                        ],
-                      )
-                  )
-                ]
-              )
-          ),
-        )
-      ],
+    return GestureDetector(
+      onTapUp: (_) => context.read<CharacterCubit>().shortJump(),
+      onLongPress: () => context.read<CharacterCubit>().longJump(),
+      child: Scaffold(
+          backgroundColor: Colors.black,
+          body: Column(children: [
+            Expanded(
+                child: Stack(
+              //stack 이용 방법 alignment 이용방법 알아보기
+              children: [
+                const Timer(),
+                const MyCharacter(),
+                Align(
+                  alignment: const Alignment(0.0, 1.0),
+                  child: Container(
+                    width: 600.0,
+                    height: 50.0,
+                    color: Colors.red,
+                  ),
+                )
+              ],
+            ))
+          ])),
     );
   }
 }

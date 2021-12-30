@@ -44,8 +44,9 @@ class SelectCharacter extends StatelessWidget {
                   },
                   // child: Image.asset(character[index],
                   //     fit: BoxFit.fitHeight), // child은 위젯을 받고 하는 행동
-                  child: Image(
+                  child: Image(//flutter boxfit
                     width: 800,
+                    height: 500,
                     image: AssetImage(character[index]), // child은 위젯을 받고 하는 행동
                   ),
                 );

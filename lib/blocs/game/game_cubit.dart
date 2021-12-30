@@ -5,8 +5,12 @@ part 'game_state.dart';
 
 class GameCubit extends Cubit<GameState> {
 
-  late Timer timer;//이런걸 잘 모르겟어 나중에 써야되는 건 알겠는데 바로 떠오르지가 않아
-//timer를 계속 켜줘야 지속적인 행동을 하는 것임 이것은 게임 전반적인 곳에 있어야 되서 어디에 두어야 할지를 모르겟음
+  //late이라는 것은 나중에 받아오는데 언제 받아올 것인가 알기
+  late Timer timer;
+  //timer는 시간 주기를 설정해주고 어떤 코드들이 실행하게 되는것 기계에서 돌아가는 input 기계가 5초 돌아갔어요 input에 가깝지 데이터 저장은 아님
+  // timer game_page안에 있어야됨
+  //이렇게 하면 timer gameCubitstate는 데이터를 저장하는 곳
+  //timer를 계속 켜줘야 지속적인 행동을 하는 것임 이것은 게임 전반적인 곳에 있어야 되서 어디에 두어야 할지를 모르겟음
   GameCubit() : super(GameInitial());
 
   void startGame() {
